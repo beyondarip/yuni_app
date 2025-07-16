@@ -20,12 +20,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      # — contoh lint, boleh di-skip jika belum pakai flake8/pytest —
-      - name: (Optional) Lint
-        run: |
-          pip install flake8
-          flake8 .
-
       # Trigger deploy ke Sevalla via hook
       - name: Trigger Sevalla Deploy
         run: curl -X POST ${{ secrets.SEVALLA_DEPLOY_HOOK }}
