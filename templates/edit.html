@@ -2,27 +2,38 @@
 {% block title %}Edit Post{% endblock %}
 
 {% block content %}
-  <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg">
-    <div class="mb-6 text-center">
-      <h1 class="text-3xl font-bold text-slate-900">Edit Your Post</h1>
-      <p class="text-slate-500">Refine your message.</p>
+<div class="form-container">
+  <!-- Card -->
+  <div class="form-card">
+    <div class="form-header">
+      <h1 class="form-title">Edit Your Post</h1>
+      <p class="form-subtitle">Refine your message</p>
     </div>
 
-    <form action="" method="post" class="space-y-6">
-      <div>
-        <label for="title" class="block text-sm font-semibold text-slate-700 mb-1">Title</label>
-        <input type="text" id="title" name="title" value="{{ post.title }}" class="w-full border-slate-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
-      </div>
-      <div>
-        <label for="content" class="block text-sm font-semibold text-slate-700 mb-1">Content</label>
-        <textarea id="content" name="content" rows="8" class="w-full border-slate-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" required>{{ post.content }}</textarea>
-      </div>
-      <div class="flex items-center justify-end space-x-4 pt-4">
-        <a href="{{ url_for('index') }}" class="text-slate-600 hover:text-slate-800">Cancel</a>
-        <button type="submit" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:shadow-lg">
-          Update Post
-        </button>
-      </div>
-    </form>
+    <div class="form-body">
+      <!-- Form -->
+      <form method="post" action="">
+        <div class="form-group">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" id="title" name="title" value="{{ post.title }}" class="form-input" required>
+        </div>
+
+        <div class="form-group">
+          <label for="content" class="form-label">Content</label>
+          <textarea id="content" name="content" class="form-textarea" required>{{ post.content }}</textarea>
+        </div>
+
+        <div class="form-footer">
+          <a href="{{ url_for('index') }}" class="btn-secondary">Cancel</a>
+          <button type="submit" class="btn-warning">
+            <span>✏️</span>
+            Update Post
+          </button>
+        </div>
+      </form>
+      <!-- End Form -->
+    </div>
   </div>
+  <!-- End Card -->
+</div>
 {% endblock %}

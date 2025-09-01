@@ -3,46 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}My Blog{% endblock %} - Flask Blog</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Menambahkan sedikit transisi untuk pengalaman pengguna yang lebih baik */
-    .btn, a, div {
-      transition: all 0.2s ease-in-out;
-    }
-  </style>
+  <title>{% block title %}My Blog{% endblock %} - Yuni Blog</title>
+  <!-- Local Preline UI Inspired Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/preline-style.css') }}">
 </head>
-<body class="bg-slate-100 text-slate-800 flex flex-col min-h-screen">
-
-  <!-- Navbar -->
-  <nav class="bg-white shadow-md sticky top-0 z-50">
-    <div class="container mx-auto px-6 py-3">
-      <div class="flex justify-between items-center">
-        <!-- Brand/Logo -->
-        <a href="{{ url_for('index') }}" class="text-2xl font-bold text-slate-900 hover:text-blue-600">
-          Yuni Blog
+<body>
+  <!-- Navigation Header -->
+  <header>
+    <nav>
+      <!-- Brand/Logo -->
+      <a href="{{ url_for('index') }}" class="brand">
+        Yuni Blog
+      </a>
+      
+      <!-- Navigation Links -->
+      <div class="nav-links">
+        <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+        <a href="{{ url_for('create') }}" class="btn-primary">
+          <span>+</span>
+          New Post
         </a>
-        <!-- Navigation Links -->
-        <div class="flex items-center space-x-4">
-          <a href="{{ url_for('index') }}" class="text-slate-600 hover:text-blue-600">Home</a>
-          <a href="{{ url_for('create') }}" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg shadow-sm">
-            + New Post
-          </a>
-        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
   <!-- Main Content -->
-  <main class="flex-grow container mx-auto p-6">
+  <main>
     {% block content %}{% endblock %}
   </main>
 
   <!-- Footer -->
-  <footer class="bg-slate-900 text-white mt-12">
-    <div class="container mx-auto px-6 py-4 text-center">
-      <p>© {{ now().year }} Yuni'sBlog. Dibuat dengan ❤️.</p>
-      <p class="text-sm text-slate-400 mt-1">Dikelola oleh: nurwahyuni syamsul</p>
+  <footer>
+    <a href="{{ url_for('index') }}" class="footer-brand">Yuni Blog</a>
+    <div>
+      <p class="footer-text">© {{ now().year }} Yuni'sBlog. Dibuat dengan ❤️</p>
+      <p class="footer-text">Dikelola oleh: nurwahyuni syamsul</p>
     </div>
   </footer>
 
